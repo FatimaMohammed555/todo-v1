@@ -47,7 +47,8 @@ code {
   flex: 3;
   border: none;
   outline: none;
-  border-bottom: 1px solid #555;
+  /* border-bottom: 1px solid #555; */
+  border: 1px solid #ced4da;
   margin: 0 5px;
   }
   

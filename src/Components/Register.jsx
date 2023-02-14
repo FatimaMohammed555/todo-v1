@@ -20,14 +20,12 @@ password:'',
 userTodos:[]
 });
 
-console.log(userInfo , 'userInfo');
 
 //to store value in localStorage
 const onSubmit = (e) => {
 e.preventDefault();
 setUsers([...users , userInfo]);
 // localStorage.setItem("user" , JSON.stringify(userInfo));
-console.log(users,'users from submit');
 navigate("/login");
 }
 

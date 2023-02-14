@@ -12,7 +12,6 @@ const Login = () => {
   //   });
 
     const {userInfo, setUserInfo ,users}=useContext(DataContext);
-console.log(users,'userFromLogin');
 
 
 const handelLogin = (e) =>{

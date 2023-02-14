@@ -4,18 +4,22 @@ import React, { useContext, useState } from 'react';
 import {DataContext} from './DataProvider';
 
 
-const Footer = () => {
+const Footer = ({findUserState,setFindUserState,findUserLoggin}) => {
 
 const [checkAll , setCheckAll]=useState(false);
 const {users,userInfo}=useContext(DataContext);
  
 // lets find the user who loggin inside the users
-let findUserLoggin=users.find(item => item.email === userInfo.email);
 
-let [findUserState , setFindUserState]=useState(findUserLoggin);
  
 
-const handleCheckAll =() =>{
+  const handleCheckAll = () => {
+    let newTodos = [...findUserState.userTodos]
+    newTodos.forEach(todo => {
+      todo.complete = !checkAll
+    })
+    setFindUserState({ ...findUserState, userTodos: newTodos })
+    setCheckAll(!checkAll);
 // const newTodos = [...todos];
 // newTodos.forEach((todo) =>{todo.complete = !checkAll
 // })
@@ -23,7 +27,10 @@ const handleCheckAll =() =>{
 // setCheckAll(!checkAll);
 }
 
-const deleteTodo = () =>{
+  const deleteTodo = () => {
+    let newTodos = findUserState.userTodos.filter(todo => todo.complete === false)
+    setFindUserState({ ...findUserState, userTodos: newTodos })
+    setCheckAll(false);
 // const newTodos = todos.filter(todo => {
 // return todo.complete === false
 // })

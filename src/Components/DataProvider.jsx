@@ -12,8 +12,10 @@ export const DataProvider = (props) => {
 //   return JSON.parse(localStorage.getItem('todos')) || [];
 // });
 
-let [users , setUsers]=useLocalStorage('allUsers',[]);
+//to save all users register in localstorage key =>allUsers
+const [users , setUsers]=useLocalStorage('allUsers',[]);
 
+//to save all users loggin in localstorage key =>LogginUser
 const [userInfo , setUserInfo]=useLocalStorage("LogginUser",{
   email:'',
   password:''
@@ -38,16 +40,6 @@ const handelDeleteTodo = (e) =>{
 // },[todos]);
 
 
-//get data from localStorage
-// useEffect(() => {
-// const todos = JSON.parse(localStorage.getItem('todos'));
-// if(todos){
-//   setTodos(todos);
-// }
-// },[]);
-
-
-// todos,setTodos 
 
   return (
     <DataContext.Provider value={{handelDeleteTodo ,users ,setUsers,userInfo , setUserInfo}}>

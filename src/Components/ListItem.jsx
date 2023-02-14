@@ -5,7 +5,7 @@ import {DataContext} from "../Components/DataProvider";
 const ListItem = ({todo , id , checkComplete ,handelEditTodos ,handelDeleteTodo,handleDelete}) => {
 
 const [onEdit , setOnEdit]=useState(false);
-const [editValue , setEditValue]=useState(todo.name);
+const [editValue , setEditValue]=useState(todo.todoName);
 
 // const {handelDeleteTodo}=useContext(DataContext);
 
@@ -19,7 +19,7 @@ const handleSave =(id) =>{
 if (editValue) {
   handelEditTodos(editValue,id)
 }else{
-setEditValue(todo.name)
+setEditValue(todo.todoName)
 }
 }
 
@@ -49,7 +49,7 @@ if (onEdit) {
     <li>
     <label htmlFor={id} className={todo.complete ? "active" : ""}>
       <input type="checkbox" id={id} checked={todo.complete} onChange={() => checkComplete(id)} />
-     {todo.name}
+     {todo.todoName}
     </label>
     <div>
     <button disabled={todo.complete} onClick={handelOnEdit}>Edit</button>
